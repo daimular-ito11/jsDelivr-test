@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI-demo</title>
+  <script type="module" crossorigin src="/main.js"></script>
+  <link rel="stylesheet" crossorigin href="/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="main-header">
+            <nav class="main-header__nav">
+                <div class="main-header__brand">
+                    <a href=""><img src="images/logo.png" alt="logo" class="main-header__logo"></a>
+                </div>
+                <ul class="nav__list">
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link nav__list-link_active">
+                            <span class="material-symbols-outlined nav__list-icon">home</span>
+                            <span class="nav__list-text">ホーム</span>
+                        </a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link">
+                            <span class="material-symbols-outlined nav__list-icon">apartment</span>
+                            <span class="nav__list-text">ファンド</span>
+                        </a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link">
+                            <span class="material-symbols-outlined nav__list-icon">pending_actions</span>
+                            <span class="nav__list-text">出資履歴</span>
+                        </a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link">
+                            <span class="material-symbols-outlined nav__list-icon">payments</span>
+                            <span class="nav__list-text">配当履歴</span>
+                        </a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link">
+                            <span class="material-symbols-outlined nav__list-icon">menu</span>
+                            <span class="nav__list-text">メニュー</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="main-header__auth">
+                    <button type="button" class="main-header__auth-user" data-role="auth-menu">
+                        example@email.com
+                        <span class="material-symbols-outlined main-header__auth-icon">
+                            arrow_drop_down
+                        </span>
+                    </button>
+                    <div class="main-header__auth-menu">
+                        <a class="main-header__auth-logout">
+                            <span class="material-symbols-outlined">logout</span>
+                            <span>ログアウト</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="sub-header sub-header__detail">
+            <a href="" class="sub-header__back">
+                <span class="material-symbols-outlined sub-header__back-icon">arrow_back_ios</span>
+            </a>
+            <div class="detail-header">
+                <h1 class="detail-header__head">ファンド詳細</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-container">
+            <div class="section-wrapper">
+                <section class="thumbnail-section">
+                    <img src="images/villa.jpg" alt="thumbnail" class="thumbnail-section__img">
+
+                    <div class="thumbnail-section__fund-text">
+                        <div class="thumbnail-section__fund-label">
+                            <div class="fund-label">
+                                <span class="fund-label__status fund-label__status_id_1"></span>
+                                <span class="fund-label__type fund-label__type_id_2"></span>
+                            </div>
+                        </div>
+                        <h2 class="thumbnail-section__fund-title">013 プールヴィラ済井出</h2>
+                    </div>
+                </section>
+
+                <div class="toggle-section__list">
+                    <button type="button" data-target="#js-intro" data-role="toggle-section" class="toggle-section__list-button">
+                        ファンド紹介
+                    </button>
+                    <button type="button" data-target="#js-info" data-role="toggle-section" class="toggle-section__list-button toggle-section__list-button_active">
+                        ファンド情報
+                    </button>
+                    <button type="button" data-target="#js-schedule" data-role="toggle-section" class="toggle-section__list-button">
+                        スケジュール
+                    </button>
+                </div>
+
+                <div class="toggle-section__wrapper">
+                    <div class="toggle-section__item" id="js-intro">
+                        <section class="fund-content">
+                            <h3 class="fund-content__head">
+                                沖縄リゾートエリア開発シリーズ 第二弾 済井出（すむいで）
+                            </h3>
+                            <p class="fund-content__content">
+                                沖縄県北部（名護市・今帰仁村エリア）にて巨大テーマパークの構想はかねてより公表されておりましたが、
+                                2023/11/27、テーマパークの名称「JUNGLIA(ジャングリア)」が公開されました。
+                                2025年のオープンを目標にしていると発表されています。
+                                「JUNGLIA(ジャングリア)」計画はUSJの再建を手がけた森岡 毅 氏による発案で、
+                                新たな沖縄の観光スポットとして、国内外からの観光客増加が見込まれます。
+                            </p>
+                            <div class="fund-content__img-wrapper">
+                                <img src="images/content-1.jpg" alt="image name" class="fund-content__img">
+                                <img src="images/content-2.jpg" alt="image name" class="fund-content__img">
+                            </div>
+                        </section>
+
+                        <section class="fund-content">
+                            <h3 class="fund-content__head">
+                                沖縄リゾートエリア開発シリーズ 第二弾 済井出（すむいで）
+                            </h3>
+                            <p class="fund-content__content">
+                                沖縄県北部（名護市・今帰仁村エリア）にて巨大テーマパークの構想はかねてより公表されておりましたが、
+                                2023/11/27、テーマパークの名称「JUNGLIA(ジャングリア)」が公開されました。
+                                2025年のオープンを目標にしていると発表されています。
+                                「JUNGLIA(ジャングリア)」計画はUSJの再建を手がけた森岡 毅 氏による発案で、
+                                新たな沖縄の観光スポットとして、国内外からの観光客増加が見込まれます。
+                            </p>
+                            <div class="fund-content__img-wrapper">
+                                <img src="images/content-1.jpg" alt="image name" class="fund-content__img">
+                                <img src="images/content-2.jpg" alt="image name" class="fund-content__img">
+                                <img src="images/content-3.jpg" alt="image name" class="fund-content__img">
+                                <img src="images/content-4.jpg" alt="image name" class="fund-content__img">
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="toggle-section__item toggle-section__item_show" id="js-info">
+                        <div class="fund-info">
+                            <section class="fund-info__overview">
+                                <dl class="fund-info__overview-dl">
+                                    <dt class="fund-info__overview-dt fund-info__overview-dt_yeild">
+                                        予定利回り
+                                    </dt>
+                                    <dd class="fund-info__overview-dd">
+                                        <strong>4.5</strong>%（年利）
+                                    </dd>
+                                    <dt class="fund-info__overview-dt fund-info__overview-dt_period">
+                                        運用予定日数
+                                    </dt>
+                                    <dd class="fund-info__overview-dd">
+                                        <strong>365</strong>日間
+                                    </dd>
+                                    <dt class="fund-info__overview-dt fund-info__overview-dt_closing">
+                                        応募締切日時
+                                    </dt>
+                                    <dd class="fund-info__overview-dd">
+                                        <strong>2024</strong>年
+                                        <strong>12</strong>月
+                                        <strong>10</strong>日
+                                        <strong>19:00</strong>まで
+                                    </dd>
+                                    <dt class="fund-info__overview-dt fund-info__overview-dt_total">
+                                        運用総額
+                                    </dt>
+                                    <dd class="fund-info__overview-dd">
+                                        <span>150,000,000</span> 円
+                                    </dd>
+                                </dl>
+
+                                <div class="invest-current">
+                                    <div class="invest-current__text">
+                                        <span>現在の応募総額</span>
+                                        <span class="invest-current__text-value">
+                                            <b>58,234,569</b>円
+                                        </span>
+                                    </div>
+                                    <div class="invest-ratio">
+                                        <div class="invest-ratio__max-bar">
+                                            <div class="invest-ratio__value-bar" style="width: 58%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="invest-current__text invest-current__text_sub">
+                                        <span>募集総額<b>100,000,000</b>円</span>
+                                        <span class="invest-current__text-value">
+                                            <b>58</b>%
+                                        </span>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="fund-info__item">
+                                <h3 class="fund-info__item-head">
+                                    出資情報
+                                </h3>
+                                <div class="fund-info__item-content"></div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <section class="toggle-section__item" id="js-schedule">
+                        schedule
+                    </section>
+                </div>
+            </div>
+
+            <div class="application__wrapper">
+                <div class="application">
+                    <h2 class="application__head">投資申し込み</h2>
+                    <p class="application__description">
+                        【注意事項】<br>
+                        今回の募集方式は<strong>「抽選方式」</strong>です。<br>
+                        投資申込後、募集終了日に抽選を行い、当選者にのみ「不動産特定共同事業契約書」を発行しますので、 ご確認のうえ、ご承諾ください。<br>
+                        その後、メールにて入金先のご案内を致します。
+                    </p>
+                    <div class="application__expire">
+                        振込期日：投資申込後 <strong>3</strong>日以内
+                    </div>
+                    <hr>
+                    <div class="application__form">
+                        <form action="" class="application__form">
+                            <label for="investment">
+                                応募可能額&nbsp;
+                                <strong>50</strong>万円
+                                <div class="input-group input-group__flex_end">
+                                    <input type="text" id="investment" class="input input-group__full-input">
+                                    <span>万円</span>
+                                </div>
+                            </label>
+                            <p class="application__form-description">
+                                ※小規模不動産特定共同事業法により、同時にお客様からお預かりできる投資額の上限が100万円です（応募中含む）。
+                            </p>
+                            <button class="button button__width_full">投資を申し込む</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="bottom-modal__open-btn">
+        <button type="button" class="button button_width_full" data-role="modal-open" data-target="#js-bottom-modal">出資する</button>
+    </div>
+
+    <div class="modal__bottom modal" id="js-bottom-modal" data-dismiss="#js-bottom-modal">
+        <div class="modal__dialog modal__dialog_bottom">
+            <div class="modal__content application__wrapper application__wrapper_sub">
+                <button type="button" data-dismiss="#js-bottom-modal" data-role="modal-close" class="modal__close-button">
+                </button>
+                <div class="application">
+                    <h2 class="application__head">投資申し込み</h2>
+                    <div class="application__form">
+                        <form action="" class="application__form">
+                            <label for="investment">
+                                <div class="input-group input-group_flex_end">
+                                    <div class="input-group_text_strech">
+                                        <span>応募可能額&nbsp;</span>
+                                        <span><strong>50</strong>万円</span>
+                                    </div>
+                                    <input type="text" id="investment" class="input input-group_full-input">
+                                    <span>万円</span>
+                                </div>
+                            </label>
+                            <p class="application__form-description">
+                                ※小規模不動産特定共同事業法により、同時にお客様からお預かりできる投資額の上限が100万円です（応募中含む）。
+                            </p>
+                            <button class="button button_width_full">投資を申し込む</button>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="application__expire">
+                        振込期日：投資申込後 <strong>3</strong>日以内
+                    </div>
+                    <p class="application__description">
+                        【注意事項】<br>
+                        今回の募集方式は<strong>「抽選方式」</strong>です。<br>
+                        投資申込後、募集終了日に抽選を行い、当選者にのみ「不動産特定共同事業契約書」を発行しますので、 ご確認のうえ、ご承諾ください。<br>
+                        その後、メールにて入金先のご案内を致します。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="main-footer"></div>
+    </footer>
+
+</body>
+
+</html>

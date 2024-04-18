@@ -84,7 +84,7 @@
         </div>
     </header>
 
-    <main class="admin">
+    <main class="admin" data-role="modal-open" data-target="#UI-form-modal" data-errors="{}">
         <div class="admin__header">
             <h1 class="admin-members">メンバー一覧</h1>
             <button class="button" type="button" data-role="modal" data-target="#UI-form-modal">
@@ -99,25 +99,34 @@
             <div class="modal__dialog">
                 <!-- <button type="button" class="modal__close-button" data-role="modal" data-target="#UI-form-modal"></button> -->
                 <div class="modal__content">
-                    <div class="modal-form">
+                    <form class="modal-form" th:inline="none">
                         <div class="modal-form__content">
                             <h3 class="modal-form__header">メンバー追加</h3>
+                            <!--/* 担当者名(name_admin) */-->
                             <label for="name" class="label label_required">
+                                <sp:input-field name="f02"></sp:input-field>
                                 <span class="label__text">名前</span>
-                                <input type="text" id="name" name="name" class="input" placeholder="例：大村 太郎" autocomplete="off">
+                                <input type="text" id="name" th:name="${fields['f02'].name}" th:value="${inputs['f02']}" th:if="${fields['f02'].control == 'text'}" class="input" placeholder="例：大村 太郎" autocomplete="off">
                             </label>
+                            <!--/* メールアドレス(mail_admin) */-->
                             <label for="email" class="label label_required">
+                                <sp:input-field name="f01"></sp:input-field>
                                 <span class="label__text">メールアドレス</span>
-                                <input type="email" id="email" name="email" class="input" placeholder="例：exmaple@email.com" autocomplete="off">
+                                <input type="email" id="email" th:name="${fields['f01'].name}" th:value="${inputs['f01']}" class="input" placeholder="例：exmaple@email.com" autocomplete="off">
                             </label>
+                            <span class="error" th:if="${errors['f01'] != null}" th:text="${errors['f01'].message}">Error message</span>
+
+                            <!--/* パスワード(password_admin) */-->
                             <label for="password" class="label label_required label_type_password">
+                                <sp:input-field name="f03"></sp:input-field>
                                 <span class="label__text">パスワード</span>
-                                <input type="password" id="password" name="password" id="js-password" class="input password-input" placeholder="例：大村 太郎" autocomplete="off">
+                                <input type="password" id="password" th:name="${fields['f03:reenter'].name}" th:value="${inputs['f03:reenter']}" id="js-password" class="input password-input" placeholder="例：大村 太郎" autocomplete="off">
                                 <span class="password__toggler" data-target="#js-password"></span>
                             </label>
+                            <span class="error" th:if="${errors['f03'] != null}" th:text="${errors['f03'].message}">Error message</span>
                         </div>
                         <div class="modal-form__footer">
-                            <button class="button button_width_full" type="button" data-role="modal" data-target="#UI-form-modal">
+                            <button class="button button_width_full" type="submit" name="action" value="next">
                                 <span class="material-symbols-outlined">add</span>
                                 新しいメンバーを追加する
                             </button>
@@ -125,7 +134,8 @@
                                 キャンセル
                             </button>
                         </div>
-                    </div>
+
+                    </form>
                 </div>
             </div>
         </div>

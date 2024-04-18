@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UI-demo</title>
+    <title>UI-demo</title>
   <script type="module" crossorigin src="/main.js"></script>
   <link rel="stylesheet" crossorigin href="/style.css">
 </head>
 
 <body>
-
     <header>
         <div class="main-header">
             <nav class="main-header__nav">
@@ -27,25 +26,39 @@
                     <li class="nav__list-item">
                         <a href="" class="nav__list-link">
                             <span class="material-symbols-outlined nav__list-icon">apartment</span>
-                            <span class="nav__list-text">ファンド</span>
+                            <span class="nav__list-text">ファンド管理</span>
                         </a>
                     </li>
                     <li class="nav__list-item">
                         <a href="" class="nav__list-link">
-                            <span class="material-symbols-outlined nav__list-icon">pending_actions</span>
-                            <span class="nav__list-text">出資履歴</span>
+                            <span class="material-symbols-outlined nav__list-icon">groups</span>
+                            <span class="nav__list-text">会員管理</span>
                         </a>
                     </li>
                     <li class="nav__list-item">
                         <a href="" class="nav__list-link">
                             <span class="material-symbols-outlined nav__list-icon">payments</span>
-                            <span class="nav__list-text">配当履歴</span>
+                            <span class="nav__list-text">出資管理</span>
                         </a>
                     </li>
                     <li class="nav__list-item">
                         <a href="" class="nav__list-link">
                             <span class="material-symbols-outlined nav__list-icon">menu</span>
-                            <span class="nav__list-text">メニュー</span>
+                            <span class="nav__list-text">配当管理</span>
+                        </a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link">
+                            <span class="material-symbols-outlined nav__list-icon">news</span>
+                            <span class="nav__list-text">ニュース</span>
+                        </a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link">
+                            <span class="material-symbols-outlined nav__list-icon">
+                                supervised_user_circle
+                            </span>
+                            <span class="nav__list-text">メンバー管理</span>
                         </a>
                     </li>
                 </ul>
@@ -57,6 +70,7 @@
                         </span>
                     </button>
                     <div class="main-header__auth-menu">
+                        <div class="main-header__auth-bg"></div>
                         <a class="main-header__auth-logout">
                             <span class="material-symbols-outlined">logout</span>
                             <span>ログアウト</span>
@@ -66,9 +80,81 @@
             </nav>
         </div>
         <div class="sub-header">
-            <h1>会員一覧</h1>
+            <h1>ファンド</h1>
         </div>
     </header>
+
+    <main class="admin">
+        <div class="admin__header">
+            <h1 class="admin-members">メンバー一覧</h1>
+            <button class="button" type="button" data-role="modal" data-target="#UI-form-modal">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+                メンバー追加
+            </button>
+        </div>
+        <!-- /*メンバー追加モーダル*/ -->
+        <div class="modal" id="UI-form-modal">
+            <div class="modal__dialog">
+                <!-- <button type="button" class="modal__close-button" data-role="modal" data-target="#UI-form-modal"></button> -->
+                <div class="modal__content">
+                    <div class="modal-form">
+                        <div class="modal-form__content">
+                            <h3 class="modal-form__header">メンバー追加</h3>
+                            <label for="name" class="label label_required">
+                                <span class="label__text">名前</span>
+                                <input type="text" id="name" name="name" class="input" placeholder="例：大村 太郎" autocomplete="off">
+                            </label>
+                            <label for="email" class="label label_required">
+                                <span class="label__text">メールアドレス</span>
+                                <input type="email" id="email" name="email" class="input" placeholder="例：exmaple@email.com" autocomplete="off">
+                            </label>
+                            <label for="password" class="label label_required label_type_password">
+                                <span class="label__text">パスワード</span>
+                                <input type="password" id="password" name="password" id="js-password" class="input password-input" placeholder="例：大村 太郎" autocomplete="off">
+                                <span class="password__toggler" data-target="#js-password"></span>
+                            </label>
+                        </div>
+                        <div class="modal-form__footer">
+                            <button class="button button_width_full" type="button" data-role="modal" data-target="#UI-form-modal">
+                                <span class="material-symbols-outlined">add</span>
+                                新しいメンバーを追加する
+                            </button>
+                            <button class="button button_width_full button_type_no-line" type="button" data-role="modal" data-target="#UI-form-modal">
+                                キャンセル
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /*メンバー一覧*/ -->
+        <table class="admin__talble table">
+            <thead class="thead">
+                <tr class="tr">
+                    <th class="th">ID</th>
+                    <th class="th">名前</th>
+                    <th class="th">メールアドレス</th>
+                    <th class="th">ログイン許可</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr class="tr">
+                    <td class="td">01</td>
+                    <td class="td">田中 太郎</td>
+                    <td class="td">example@examle.com</td>
+                    <td class="td">許可する</td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">02</td>
+                    <td class="td">田中 太郎</td>
+                    <td class="td">example@examle.com</td>
+                    <td class="td">許可しない</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 
     <footer>
         <div class="main-footer"></div>
@@ -107,7 +193,6 @@
             </ul>
         </div>
     </footer>
-
 </body>
 
 </html>

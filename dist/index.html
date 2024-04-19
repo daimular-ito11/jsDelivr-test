@@ -27,7 +27,7 @@
                         <span class="label__text">メールアドレス</span>
                         <input type="number" id="code" th:name="${fields['f060'].name}" th:value="${#maps.containsKey(inputs, 'f060') ? inputs['f060'] : siteClient.record[60]}" placeholder="1234" class="input" required>
                     </label>
-                    <div id="mail_verify_false"></div>
+                    <div id="mail_verify_false" class="error"></div>
                     <span class="support">4桁の認証コードを入力してください。</span>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                 <button type="submit" name="action" value="next" class="button button_width_full">送信する</button>
             </div>
         </div>
-        <a th:href="${pages['p042493']?.path} ?: '/404'" class="link link__text">認証コード付きメールを再送信する</a>
+        <button class="button button_type_no-line">認証コード付きメールを再送信する</button>
 
     </main>
 </body>

@@ -30,7 +30,31 @@
                     <h3 class="complete-section__header">基本情報</h3>
                     <div class="complete-section__item">
                         <span class="complete-section__field">氏名</span>
-                        <span class="complete-section__value">大村 太郎</span>
+                        <span class="complete-section__value" th:text="|${values['f04']} ${values['f05']}|">Example</span>
+                    </div>
+                    <div class="complete-section__item">
+                        <span class="complete-section__field">氏名（ふりがな）</span>
+                        <span class="complete-section__value" th:text="|${values['f06']} ${values['f07']}|">Example</span>
+                    </div>
+                    <div class="complete-section__item">
+                        <span class="complete-section__field">生年月日</span>
+                        <span class="complete-section__value" th:text="${values['f030']?.format('uuuu/MM/dd')}">Example</span>
+                    </div>
+                    <div class="complete-section__item">
+                        <span class="complete-section__field">電話番号</span>
+                        <span class="complete-section__value" th:text="${values['f08']?.nationalNumber}">Example</span>
+                    </div>
+                    <div class="complete-section__item">
+                        <span class="complete-section__field">携帯電話</span>
+                        <span class="complete-section__value" th:text="${values['f09']?.nationalNumber}">Example</span>
+                    </div>
+                    <div class="complete-section__item">
+                        <span class="complete-section__field">郵便番号</span>
+                        <span class="complete-section__value" th:text="|〒${values['f010']}|">Example</span>
+                    </div>
+                    <div class="complete-section__item">
+                        <span class="complete-section__field">住所</span>
+                        <span class="complete-section__value" th:text="|${values['f063']?.label}${values['f012']}${values['f013']}${values['f014']}|">Example</span>
                     </div>
                 </section>
             </div>

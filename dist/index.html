@@ -11,65 +11,22 @@
 
 <body>
     <header class="header header_form">
-        <h1 class="header__text">仮会員登録</h1>
+        <h1 class="header__text">仮会員登録完了</h1>
     </header>
-    <main class="main main_form">
-        <form action="" class="form">
-            <div class="form__header">
-                <div class="form__logo">
-                    <img src="images/logo.png" alt="" class="form__logo-img">
-                </div>
-            </div>
-            <div class="form__content">
-                <div class="input-item">
-                    <label for="email" class="label label_required">
-                        <span class="label__text">メールアドレス</span>
-                        <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}">
-                    </label>
-                </div>
-                <div class="input-item">
-                    <label for="password" class="label label_required label_type_password">
-                        <span class="label__text">パスワード</span>
-                        <input type="password" id="password" name="password" class="input" autocomplete="new-password">
-                        <span data-target="#password" class="password__toggler"></span>
-                    </label>
-                    <span class="error">認証情報が正しくないか、ログインロックがかかっている可能性があります</span>
-                </div>
-                <div class="input-item input-item_type_radio">
-                    <span class="label label_required">
-                        <span class="label__text">会員種別</span>
-                    </span>
-                    <label for="personal" class="label label_type_radio">
-                        <input type="radio" name="test" value="a" id="personal" class="input input_type_radio">
-                        <span class="label__text">個人</span>
-                    </label>
-                    <label for="company" class="label label_type_radio">
-                        <input type="radio" name="test" value="b" id="company" class="input input_type_radio">
-                        <span class="label__text">法人</span>
-                    </label>
-                </div>
-                <div class="input-item input-item_no-label">
-                    <label for="confirm" class="label label_type_checkbox">
-                        <input type="checkbox" id="confirm" class="input input_type_checkbox" required>
-                        <span class="label_text">個人情報保護方針に同意する。</span>
-                    </label>
-                    <div class="input-item__link">
-                        <a th:href="${pages['p042080']?.path} ?: '/404'" class="link link_icon">
-                            <span class="link__text">
-                                個人情報保護方針について
-                            </span>
-                            <span class="material-symbols-outlined">
-                                open_in_new
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="form__footer">
-                <button type="submit" name="action" value="next" class="button button_width_full">登録する</button>
-                <span class="form__footer-text">既に会員の方：<a th:href="${pages['p042493']?.path} ?: '/404'" class="link link__text">ログイン</a></span>
-            </div>
-        </form>
+    <main class="main main_form-complete">
+        <div class="form-complete__content">
+            <p class="description">
+                登録時に使用したメールアドレス宛に認証メールを送信しました。
+            </p>
+            <p class="description">
+                1時間以内にメール内のURLから本会員登録を行ってください。
+            </p>
+            <p class="description description_color_gray description_font_sm">
+                メールが届かない場合は、BLITZ.CFSのメールアドレス（blitz.cfsドメイン及び、blitz-cfs.jpドメイン）が受信拒否設定に含まれていないかご確認ください。
+            </p>
+        </div>
+        <a href="" class="form-complete__footer button button_fit-content">マイページへ</a>
+
     </main>
 </body>
 

@@ -10,34 +10,125 @@
 </head>
 
 <body>
-    <header class="header header_form">
-        <h1 class="header__text">認証コードの入力</h1>
-    </header>
-    <main class="main main_form">
-        <form class="form">
-            <div class="form__content">
-                <p class="form__description">
-                    example@email.comに、認証コードが記されたメールを送信しました。
-                    〇分以内に〇桁の認証コードを入力してください。
-                </p>
-                <!--/* メール認証コード顧客入力(mail_verify_customer) */-->
-                <div class="input-item">
-                    <sp:input-field name="f060"></sp:input-field>
-                    <label for="code" class="label label_required">
-                        <span class="label__text">メールアドレス</span>
-                        <input pattern="[0-9]{4}" type="text" id="code" th:name="${fields['f060'].name}" th:value="${#maps.containsKey(inputs, 'f060') ? inputs['f060'] : siteClient.record[60]}" placeholder="1234" class="input" required>
-                    </label>
-                    <div id="mail_verify_false" class="error"></div>
-                    <span class="support">4桁の認証コードを入力してください。</span>
+    <header>
+        <div class="main-header">
+            <nav class="main-header__nav">
+                <div class="main-header__brand">
+                    <a href=""><img src="images/logo.png" alt="logo" class="main-header__logo"></a>
                 </div>
-            </div>
-            <div class="form__footer">
-                <button type="submit" name="action" value="next" class="button button_width_full">送信する</button>
-            </div>
-        </form>
-        <!--/* メール認証コード顧客入力(mail_verify_customer) */-->
-        <sp:input-field name="f060"></sp:input-field>
-        <button class="button button_type_no-line">認証コード付きメールを再送信する</button>
+                <ul class="nav__list">
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link nav__list-link_active">
+                            <span class="material-symbols-outlined nav__list-icon">home</span>
+                            <span class="nav__list-text">ホーム</span>
+                        </a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link">
+                            <span class="material-symbols-outlined nav__list-icon">apartment</span>
+                            <span class="nav__list-text">ファンド</span>
+                        </a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link">
+                            <span class="material-symbols-outlined nav__list-icon">pending_actions</span>
+                            <span class="nav__list-text">出資履歴</span>
+                        </a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link">
+                            <span class="material-symbols-outlined nav__list-icon">payments</span>
+                            <span class="nav__list-text">配当履歴</span>
+                        </a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="" class="nav__list-link">
+                            <span class="material-symbols-outlined nav__list-icon">menu</span>
+                            <span class="nav__list-text">メニュー</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="main-header__auth">
+                    <button type="button" class="main-header__auth-user" data-role="auth-menu">
+                        example@email.com
+                        <span class="material-symbols-outlined main-header__auth-icon">
+                            arrow_drop_down
+                        </span>
+                    </button>
+                    <div class="main-header__auth-menu">
+                        <a class="main-header__auth-logout">
+                            <span class="material-symbols-outlined">logout</span>
+                            <span>ログアウト</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="sub-header">
+            <h1 class="header__text">仮会員マイページ</h1>
+        </div>
+    </header>
 
+    <main class="main main_tmp-user">
+        <h1 class="main__header">
+            仮会員マイページ
+        </h1>
+        <div class="main__content">
+            <p class="description">
+                投資を始めるためには本会員登録が必要です。<br>
+                以下の手順に従って本会員登録を行ってください。
+            </p>
+            <div class="tmp-user__item">
+                <h2 class="tmp-user__item-header">①メール認証</h2>
+                <span class="tmp-user__item-status">ステータス：<span>未認証</span></span>
+                <a tabindex="-1" class="button button_width_full">認証メールを送信する</a>
+                <span class="description description_color_gray">
+                    メールアドレスを変更したい場合は、お手数ですが会員登録からやり直してください。
+                </span>
+            </div>
+            <div class="tmp-user__item">
+                <h2 class="tmp-user__item-header">②会員情報を登録</h2>
+                <span class="tmp-user__item-status">ステータス：<span>未認証</span></span>
+                <span class="button button_width_full button_disabled">会員情報を登録する</span>
+            </div>
+        </div>
     </main>
+
+    <footer>
+        <div class="main-footer"></div>
+        <div class="sub-footer">
+            <ul class="nav__list">
+                <li class="nav__list-item">
+                    <a href="" class="nav__list-link nav__list-link_active">
+                        <span class="material-symbols-outlined nav__list-icon">home</span>
+                        <span class="nav__list-text">ホーム</span>
+                    </a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="" class="nav__list-link">
+                        <span class="material-symbols-outlined nav__list-icon">apartment</span>
+                        <span class="nav__list-text">ファンド</span>
+                    </a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="" class="nav__list-link">
+                        <span class="material-symbols-outlined nav__list-icon">pending_actions</span>
+                        <span class="nav__list-text">出資履歴</span>
+                    </a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="" class="nav__list-link">
+                        <span class="material-symbols-outlined nav__list-icon">payments</span>
+                        <span class="nav__list-text">配当履歴</span>
+                    </a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="" class="nav__list-link">
+                        <span class="material-symbols-outlined nav__list-icon">menu</span>
+                        <span class="nav__list-text">メニュー</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 </body>

@@ -9,10 +9,10 @@
   <link rel="stylesheet" crossorigin href="/style.css">
 </head>
 
-<body class="body body_user">
+<body class="body">
     <header class="header header_form header_form_shadow">
         <h1 class="header__text header__text_left">
-            本会員登録
+            登録内容確認
         </h1>
         <div class="header__step">
             <div class="step-circle__outer step-circle__outer_step-1">
@@ -20,77 +20,28 @@
                     <div class="step-circle__text"><span class="step-circle__text_current">1</span>/4</div>
                 </div>
             </div>
-            <h2 class="header__step-text">基本情報の登録</h2>
+            <h2 class="header__step-text">基本情報の確認</h2>
         </div>
     </header>
     <main class="main main_form">
-        <div class="form form_padding_top">
+        <div class="form form_padding_top form_padding">
             <div class="form__content">
-                <section class="form-section">
-                    <h3 class="form-section__header">プロフィール</h3>
-                    <div class="form-section__group">
-                        <div class="input-item form-section__item">
-                            <label for="email" class="label label_required">
-                                <span class="label__text">メールアドレス</span>
-                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
-                            </label>
-                        </div>
-                        <div class="input-item form-section__item">
-                            <label for="email" class="label label_required">
-                                <span class="label__text">メールアドレス</span>
-                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-section__group">
-                        <div class="input-item form-section__item">
-                            <label for="email" class="label label_required">
-                                <span class="label__text">メールアドレス</span>
-                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
-                            </label>
-                        </div>
-                        <div class="input-item form-section__item">
-                            <label for="email" class="label label_required">
-                                <span class="label__text">メールアドレス</span>
-                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
-                            </label>
-                        </div>
-                    </div>
-                </section>
-                <section class="form-section">
-                    <h3 class="form-section__header">プロフィール</h3>
-                    <div class="form-section__group">
-                        <div class="input-item form-section__item">
-                            <label for="email" class="label label_required">
-                                <span class="label__text">メールアドレス</span>
-                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
-                            </label>
-                        </div>
-                        <div class="input-item form-section__item">
-                            <label for="email" class="label label_required">
-                                <span class="label__text">メールアドレス</span>
-                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-section__group">
-                        <div class="input-item form-section__item">
-                            <label for="email" class="label label_required">
-                                <span class="label__text">メールアドレス</span>
-                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
-                            </label>
-                        </div>
-                        <div class="input-item form-section__item">
-                            <label for="email" class="label label_required">
-                                <span class="label__text">メールアドレス</span>
-                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
-                            </label>
-                        </div>
+                <section class="complete-section">
+                    <h3 class="complete-section__header">基本情報</h3>
+                    <div class="complete-section__item">
+                        <span class="complete-section__field">氏名</span>
+                        <span class="complete-section__value">大村 太郎</span>
                     </div>
                 </section>
             </div>
-            <div class="form__footer form__footer_padding_bottom form__footer_padding_x">
-                <button type="submit" name="action" value="next" class="button button_width_full">ログイン</button>
+            <div class="form__footer form__footer_padding_bottom">
+                <div class="form__btn-wrapper">
+                    <button type="submit" name="action" value="next" class="button button_type_line button_width_full button_flex_1">戻る</button>
+                    <button type="submit" name="action" value="next" class="button button_width_full button_flex_1">
+                        登録して次へ進む
+                        <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    </button>
+                </div>
             </div>
         </div>
     </main>

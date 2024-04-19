@@ -9,164 +9,89 @@
   <link rel="stylesheet" crossorigin href="/style.css">
 </head>
 
-<body>
-    <header>
-        <div class="main-header">
-            <nav class="main-header__nav">
-                <div class="main-header__brand">
-                    <a href=""><img src="images/logo.png" alt="logo" class="main-header__logo"></a>
+<body class="body body_user">
+    <header class="header header_form header_form_shadow">
+        <h1 class="header__text header__text_left">
+            本会員登録
+        </h1>
+        <div class="header__step">
+            <div class="step-circle__outer step-circle__outer_step-1">
+                <div class="step-circle__inner">
+                    <div class="step-circle__text"><span class="step-circle__text_current">1</span>/4</div>
                 </div>
-                <ul class="nav__list">
-                    <li class="nav__list-item">
-                        <a href="" class="nav__list-link nav__list-link_active">
-                            <span class="material-symbols-outlined nav__list-icon">home</span>
-                            <span class="nav__list-text">ホーム</span>
-                        </a>
-                    </li>
-                    <li class="nav__list-item">
-                        <a href="" class="nav__list-link">
-                            <span class="material-symbols-outlined nav__list-icon">apartment</span>
-                            <span class="nav__list-text">ファンド</span>
-                        </a>
-                    </li>
-                    <li class="nav__list-item">
-                        <a href="" class="nav__list-link">
-                            <span class="material-symbols-outlined nav__list-icon">pending_actions</span>
-                            <span class="nav__list-text">出資履歴</span>
-                        </a>
-                    </li>
-                    <li class="nav__list-item">
-                        <a href="" class="nav__list-link">
-                            <span class="material-symbols-outlined nav__list-icon">payments</span>
-                            <span class="nav__list-text">配当履歴</span>
-                        </a>
-                    </li>
-                    <li class="nav__list-item">
-                        <a href="" class="nav__list-link">
-                            <span class="material-symbols-outlined nav__list-icon">menu</span>
-                            <span class="nav__list-text">メニュー</span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="main-header__auth">
-                    <button type="button" class="main-header__auth-user" data-role="auth-menu">
-                        example@email.com
-                        <span class="material-symbols-outlined main-header__auth-icon">
-                            arrow_drop_down
-                        </span>
-                    </button>
-                    <div class="main-header__auth-menu">
-                        <a class="main-header__auth-logout">
-                            <span class="material-symbols-outlined">logout</span>
-                            <span>ログアウト</span>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <div class="sub-header">
-            <h1 class="header__text">仮会員マイページ</h1>
+            </div>
+            <h2 class="header__step-text">基本情報の登録</h2>
         </div>
     </header>
-
-    <main class="main main_tmp-user">
-        <h1 class="main__header">
-            仮会員マイページ
-        </h1>
-        <div class="main__content">
-            <p class="description">
-                投資を始めるためには本会員登録が必要です。<br>
-                以下の手順に従って本会員登録を行ってください。
-            </p>
-            <div class="tmp-user__item">
-                <h2 class="tmp-user__item-header">①メール認証</h2>
-                <span class="tmp-user__item-status">ステータス：<span>未認証</span></span>
-                <!--/* メール未認証 */-->
-                <a th:if="${siteClient.record[41]?.id eq 1}" th:href="${pages['p047168']?.path ?:'/404'}" class="button button_width_full">
-                    認証メールを送信する
-                </a>
-                <!--/* メール認証済み */-->
-                <span th:unless="${siteClient.record[41]?.id eq 1}" class="button button_width_full button_disabled">
-                    認証メールを送信する
-                </span>
-                <span class="description description_color_gray">
-                    メールアドレスを変更したい場合は、お手数ですが会員登録からやり直してください。
-                </span>
+    <main class="main main_form">
+        <div class="form form_padding_top">
+            <div class="form__content">
+                <section class="form-section">
+                    <h3 class="form-section__header">プロフィール</h3>
+                    <div class="form-section__group">
+                        <div class="input-item form-section__item">
+                            <label for="email" class="label label_required">
+                                <span class="label__text">メールアドレス</span>
+                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
+                            </label>
+                        </div>
+                        <div class="input-item form-section__item">
+                            <label for="email" class="label label_required">
+                                <span class="label__text">メールアドレス</span>
+                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-section__group">
+                        <div class="input-item form-section__item">
+                            <label for="email" class="label label_required">
+                                <span class="label__text">メールアドレス</span>
+                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
+                            </label>
+                        </div>
+                        <div class="input-item form-section__item">
+                            <label for="email" class="label label_required">
+                                <span class="label__text">メールアドレス</span>
+                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+                <section class="form-section">
+                    <h3 class="form-section__header">プロフィール</h3>
+                    <div class="form-section__group">
+                        <div class="input-item form-section__item">
+                            <label for="email" class="label label_required">
+                                <span class="label__text">メールアドレス</span>
+                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
+                            </label>
+                        </div>
+                        <div class="input-item form-section__item">
+                            <label for="email" class="label label_required">
+                                <span class="label__text">メールアドレス</span>
+                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-section__group">
+                        <div class="input-item form-section__item">
+                            <label for="email" class="label label_required">
+                                <span class="label__text">メールアドレス</span>
+                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
+                            </label>
+                        </div>
+                        <div class="input-item form-section__item">
+                            <label for="email" class="label label_required">
+                                <span class="label__text">メールアドレス</span>
+                                <input type="email" id="email" autocomplete="email" name="id" placeholder="exmaple@exmaple.com" class="input" th:value="${inputs['id']}" required>
+                            </label>
+                        </div>
+                    </div>
+                </section>
             </div>
-            <div class="tmp-user__item">
-                <h2 class="tmp-user__item-header">②会員情報を登録</h2>
-                <span class="tmp-user__item-status">ステータス：<span>未認証</span></span>
-                <th:block th:if="${siteClient.record[41]?.id eq 2}">
-                    <!--/* メール認証済み & 会員ステータスが本人確認中ではない */-->
-                    <a th:if="${siteClient.record[29]?.id ne 4}" th:href="${pages['p047168']?.path ?:'/404'}" class="button button_width_full">
-                        会員情報を登録する
-                    </a>
-                    <!--/* メール認証済み & 会員ステータスが本人確認中 */-->
-                    <a th:if="${siteClient.record[29]?.id eq 4}" th:href="${pages['p047168']?.path ?:'/404'}" class="button button_width_full">
-                        会員情報を修正する
-                    </a>
-                </th:block>
-
-                <!--/* メール未認証 */-->
-                <th:block th:if="${siteClient.record[41]?.id eq 1}">
-                    <span th:href="${pages['p047168']?.path ?:'/404'}" class="button button_width_full button_disabled">
-                        会員情報を修正する
-                    </span>
-                </th:block>
-            </div>
-
-            <div class="tmp-user__item">
-                <h2 class="tmp-user__item-header">③本人確認</h2>
-                <span class="tmp-user__item-status">ステータス：<span>未認証</span></span>
-                <!--/* メール認証済み & 会員ステータスが本人確認中 */-->
-                <div th:if="${siteClient.record[29]?.id eq 4 AND siteClient.record[41]?.id eq 2}" class="tmp-user__btn-wrapper">
-                    <a class="button button_width_full tmp-user__button">スマートフォンで本人確認</a>
-                    <a class="button button_width_full tmp-user__button">画像をアップロードして本人確認</a>
-                </div>
-                <!--/* メール認証済み & 会員ステータスが本人確認中ではない */-->
-                <div th:if="${siteClient.record[29]?.id ne 4 AND siteClient.record[41]?.id eq 2}" class="tmp-user__btn-wrapper">
-                    <span class="button button_width_full button_disabled tmp-user__button">スマートフォンで本人確認</span>
-                    <span class="button button_width_full button_disabled tmp-user__button">画像をアップロードして本人確認</span>
-                </div>
+            <div class="form__footer form__footer_padding_bottom form__footer_padding_x">
+                <button type="submit" name="action" value="next" class="button button_width_full">ログイン</button>
             </div>
         </div>
     </main>
-
-    <!-- <footer>
-        <div class="main-footer"></div>
-        <div class="sub-footer">
-            <ul class="nav__list">
-                <li class="nav__list-item">
-                    <a href="" class="nav__list-link nav__list-link_active">
-                        <span class="material-symbols-outlined nav__list-icon">home</span>
-                        <span class="nav__list-text">ホーム</span>
-                    </a>
-                </li>
-                <li class="nav__list-item">
-                    <a href="" class="nav__list-link">
-                        <span class="material-symbols-outlined nav__list-icon">apartment</span>
-                        <span class="nav__list-text">ファンド</span>
-                    </a>
-                </li>
-                <li class="nav__list-item">
-                    <a href="" class="nav__list-link">
-                        <span class="material-symbols-outlined nav__list-icon">pending_actions</span>
-                        <span class="nav__list-text">出資履歴</span>
-                    </a>
-                </li>
-                <li class="nav__list-item">
-                    <a href="" class="nav__list-link">
-                        <span class="material-symbols-outlined nav__list-icon">payments</span>
-                        <span class="nav__list-text">配当履歴</span>
-                    </a>
-                </li>
-                <li class="nav__list-item">
-                    <a href="" class="nav__list-link">
-                        <span class="material-symbols-outlined nav__list-icon">menu</span>
-                        <span class="nav__list-text">メニュー</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </footer> -->
 </body>

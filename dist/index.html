@@ -81,7 +81,14 @@
             <div class="tmp-user__item">
                 <h2 class="tmp-user__item-header">①メール認証</h2>
                 <span class="tmp-user__item-status">ステータス：<span>未認証</span></span>
-                <a tabindex="-1" class="button button_width_full">認証メールを送信する</a>
+                <!--/* メール未認証 */-->
+                <a th:if="${siteClient.record[41]?.id eq 1}" th:href="${pages['p047168']?.path ?:'/404'}" class="button button_width_full">
+                    認証メールを送信する
+                </a>
+                <!--/* メール認証済み */-->
+                <span th:unless="${siteClient.record[41]?.id eq 1}" class="button button_width_full button_disabled">
+                    認証メールを送信する
+                </span>
                 <span class="description description_color_gray">
                     メールアドレスを変更したい場合は、お手数ですが会員登録からやり直してください。
                 </span>
@@ -89,12 +96,43 @@
             <div class="tmp-user__item">
                 <h2 class="tmp-user__item-header">②会員情報を登録</h2>
                 <span class="tmp-user__item-status">ステータス：<span>未認証</span></span>
-                <span class="button button_width_full button_disabled">会員情報を登録する</span>
+                <th:block th:if="${siteClient.record[41]?.id eq 2}">
+                    <!--/* メール認証済み & 会員ステータスが本人確認中ではない */-->
+                    <a th:if="${siteClient.record[29]?.id ne 4}" th:href="${pages['p047168']?.path ?:'/404'}" class="button button_width_full">
+                        会員情報を登録する
+                    </a>
+                    <!--/* メール認証済み & 会員ステータスが本人確認中 */-->
+                    <a th:if="${siteClient.record[29]?.id eq 4}" th:href="${pages['p047168']?.path ?:'/404'}" class="button button_width_full">
+                        会員情報を修正する
+                    </a>
+                </th:block>
+
+                <!--/* メール未認証 */-->
+                <th:block th:if="${siteClient.record[41]?.id eq 1}">
+                    <span th:href="${pages['p047168']?.path ?:'/404'}" class="button button_width_full button_disabled">
+                        会員情報を修正する
+                    </span>
+                </th:block>
+            </div>
+
+            <div class="tmp-user__item">
+                <h2 class="tmp-user__item-header">③本人確認</h2>
+                <span class="tmp-user__item-status">ステータス：<span>未認証</span></span>
+                <!--/* メール認証済み & 会員ステータスが本人確認中 */-->
+                <div th:if="${siteClient.record[29]?.id eq 4 AND siteClient.record[41]?.id eq 2}" class="tmp-user__btn-wrapper">
+                    <a class="button button_width_full tmp-user__button">スマートフォンで本人確認</a>
+                    <a class="button button_width_full tmp-user__button">画像をアップロードして本人確認</a>
+                </div>
+                <!--/* メール認証済み & 会員ステータスが本人確認中ではない */-->
+                <div th:if="${siteClient.record[29]?.id ne 4 AND siteClient.record[41]?.id eq 2}" class="tmp-user__btn-wrapper">
+                    <span class="button button_width_full button_disabled tmp-user__button">スマートフォンで本人確認</span>
+                    <span class="button button_width_full button_disabled tmp-user__button">画像をアップロードして本人確認</span>
+                </div>
             </div>
         </div>
     </main>
 
-    <footer>
+    <!-- <footer>
         <div class="main-footer"></div>
         <div class="sub-footer">
             <ul class="nav__list">
@@ -130,5 +168,5 @@
                 </li>
             </ul>
         </div>
-    </footer>
+    </footer> -->
 </body>

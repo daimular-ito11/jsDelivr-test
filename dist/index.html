@@ -9,29 +9,71 @@
   <link rel="stylesheet" crossorigin href="/style.css">
 </head>
 
-<body class="body" style="max-width: 50vw; padding: 4rem; ">
-    <form action="" class="form">
-        <label for="postcode" class="label label_required">
-            <span class="label__text">seach</span>
-            <div class="button-input">
-                <input type="text" name="postcode" id="postcode" class="input" data-role="zip-search_input">
-                <button type="button" class="button button_type_line button_size_sm" disabled data-role="zip-search_btn">search</button>
+<body class="body">
+    <header>
+        <!-- main header -->
+        <div class="main-header">
+            <span class="logo">BLITZ CFS</span>
+
+            <nav>
+                <ul>
+                    <li><a href=""><span>ファンド一覧</span></a></li>
+                    <li><a href=""><span>お知らせ</span></a></li>
+                    <li><a href=""><span>ご利用の流れ</span></a></li>
+                    <li><a href=""><span>よくある質問</span></a></li>
+                    <li><a href=""><span>ファンド紹介</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="btn-wrapper">
+                <button class="btn sm">お問い合わせ</button>
+                <button class="btn sm btn-line">会員登録</button>
             </div>
-        </label>
-        <label for="prefecture" class="label label_required">
-            <span class="label__text">prefecture</span>
-            <input name="prefecture" id="prefecture" class="input">
-        </label>
-        <label for="city" class="label label_required">
-            <span class="label__text">city</span>
-            <input name="city" id="city" class="input">
-        </label>
 
-        <label for="street" class="label label_required">
-            <span class="label__text">street</span>
-            <input name="street" id="street" class="input">
-        </label>
+            <button type="button" id="nav-open" class="nav-btn">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+            </button>
+        </div>
 
-        <div id="js-zip_error" class="error"></div>
-    </form>
+        <!-- responsible header -->
+        <div class="sub-header hidden" id="nav-menu">
+            <div class="sub-header-content" id="nav-menu-content">
+
+                <div class="sub-header-head">
+                    <div class="logo" style="width: 90px; height:24px; background-color: red"></div>
+                    <button type="button" id="nav-close" class="nav-btn">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                </div>
+
+                <div class="sub-header-body">
+                    <div class="sub-header-item">
+                        <button type="button" class="nav-btn" data-target="#nav-list-1" data-role="accordion">
+                            <span class="material-symbols-outlined">
+                                notifications
+                            </span>
+                            <span>お知らせ</span>
+                            <span class="material-symbols-outlined arrow">
+                                navigate_next
+                            </span>
+                        </button>
+                        <div class="sub-header-item-list hidden" id="nav-list-1">
+                            <a href=""><span>ファンド一覧</span></a>
+                            <a href=""><span>お知らせ</span></a>
+                            <a href=""><span>ご利用の流れ</span></a>
+                            <a href=""><span>よくある質問</span></a>
+                            <a href=""><span>ファンド紹介</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <footer>
+    </footer>
 </body>

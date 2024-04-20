@@ -11,11 +11,11 @@
 
 <body class="body" style="max-width: 50vw; padding: 4rem; ">
     <form action="" class="form">
-        <label for="search" class="label label_required">
+        <label for="postcode" class="label label_required">
             <span class="label__text">seach</span>
             <div class="button-input">
-                <input type="text" name="search" id="search" class="input">
-                <button type="button" class="button button_type_line button_size_sm" disabled data-role="zip-search">search</button>
+                <input type="text" name="postcode" id="postcode" class="input" data-role="zip-search_input">
+                <button type="button" class="button button_type_line button_size_sm" disabled data-role="zip-search_btn">search</button>
             </div>
         </label>
         <label for="prefecture" class="label label_required">
@@ -25,11 +25,6 @@
         <label for="city" class="label label_required">
             <span class="label__text">city</span>
             <input name="city" id="city" class="input">
-        </label>
-
-        <label for="town" class="label label_required">
-            <span class="label__text">town</span>
-            <input name="town" id="town" class="input">
         </label>
 
         <label for="street" class="label label_required">

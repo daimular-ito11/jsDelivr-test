@@ -9,64 +9,142 @@
   <link rel="stylesheet" crossorigin href="/style.css">
 </head>
 
-<body class="body">
+<body class="body body_user">
     <header class="header header_form header_form_shadow">
         <h1 class="header__text header__text_left">
-            登録内容確認
+            本会員登録
         </h1>
         <div class="header__step">
-            <div class="step-circle__outer step-circle__outer_step-1">
+            <div class="step-circle__outer step-circle__outer_step-2">
                 <div class="step-circle__inner">
-                    <div class="step-circle__text"><span class="step-circle__text_current">1</span>/4</div>
+                    <div class="step-circle__text"><span class="step-circle__text_current">2</span>/4</div>
                 </div>
             </div>
-            <h2 class="header__step-text">基本情報の確認</h2>
+            <h2 class="header__step-text">配当先口座情報の登録</h2>
         </div>
     </header>
     <main class="main main_form main_gray">
-        <div class="form form_padding_top form_padding">
+        <div class="form form_padding_top">
             <div class="form__content">
-                <section class="complete-section">
-                    <h3 class="complete-section__header">基本情報</h3>
-                    <div class="complete-section__item">
-                        <span class="complete-section__field">氏名</span>
-                        <span class="complete-section__value" th:text="|${values['f04']} ${values['f05']}|">Example</span>
+                <section class="form-section">
+                    <h3 class="form-section__header">金融機関</h3>
+                    <!--/* 銀行名検索 */-->
+                    <div class="input-item form-section__item">
+                        <label for="bank_seach" class="label label_required">
+                            <span class="label__text">銀行名検索</span>
+                            <div class="button-input button-input_size_half">
+                                <input id="bank_seach" type="text" class="input" required>
+                                <button type="button" class="button button_type_line button_size_sm">検索</button>
+                            </div>
+                        </label>
+                        <span class="error">Error message</span>
                     </div>
-                    <div class="complete-section__item">
-                        <span class="complete-section__field">氏名（ふりがな）</span>
-                        <span class="complete-section__value" th:text="|${values['f06']} ${values['f07']}|">Example</span>
+                    <!--/* 金融機関名(bank_name) */-->
+                    <div class="input-item form-section__item">
+                        <sp:input-field name="f01"></sp:input-field>
+                        <label for="bank_name" class="label label_required">
+                            <span class="label__text">金融機関名</span>
+                            <select id="bank_name" type="text" th:name="${fields['f01'].name}" th:value="${inputs['f01']}" class="input input_type_select" disabled>
+                                <option value=""></option>
+                            </select>
+                            <!-- <input id="bank_name" type="text" th:name="${fields['f01'].name}" th:value="${inputs['f01']}" class="input" required> -->
+                        </label>
+                        <span class="error" th:text="${errors['f01']?.message}">Error message</span>
                     </div>
-                    <div class="complete-section__item">
-                        <span class="complete-section__field">生年月日</span>
-                        <span class="complete-section__value" th:text="${values['f030']?.format('uuuu/MM/dd')}">Example</span>
+                    <!--/* 金融機関コード(bank_code) */-->
+                    <div class="input-item form-section__item">
+                        <sp:input-field name="f02"></sp:input-field>
+                        <label for="bank_code" class="label label_required">
+                            <span class="label__text">金融機関コード</span>
+                            <input id="bank_code" type="text" th:name="${fields['f02'].name}" th:value="${inputs['f02']}" class="input" required>
+                        </label>
+                        <span class="error" th:text="${errors['f02']?.message}">Error message</span>
                     </div>
-                    <div class="complete-section__item">
-                        <span class="complete-section__field">電話番号</span>
-                        <span class="complete-section__value" th:text="${values['f08']?.nationalNumber}">Example</span>
+                </section>
+                <section class="form-section">
+                    <h3 class="form-section__header">支店名検索</h3>
+                    <!--/* 支店名検索 */-->
+                    <div class="input-item form-section__item">
+                        <label for="branch_seach" class="label label_required">
+                            <span class="label__text">支店名検索</span>
+                            <div class="button-input button-input_size_half">
+                                <input id="branch_seach" type="text" class="input" required>
+                                <button type="button" class="button button_type_line button_size_sm">検索</button>
+                            </div>
+                        </label>
+                        <span class="error">Error message</span>
                     </div>
-                    <div class="complete-section__item">
-                        <span class="complete-section__field">携帯電話</span>
-                        <span class="complete-section__value" th:text="${values['f09']?.nationalNumber}">Example</span>
+                    <!--/* 支店名(bank_branch_name) */-->
+                    <div class="input-item form-section__item">
+                        <sp:input-field name="f03"></sp:input-field>
+                        <label for="bank_branch_name" class="label label_required">
+                            <span class="label__text">支店名</span>
+                            <select id="bank_branch_name" type="text" th:name="${fields['f03'].name}" th:value="${inputs['f03']}" class="input input_type_select" disabled>
+                                <option value=""></option>
+                            </select>
+                            <!-- <input id="bank_branch_name" type="text" th:name="${fields['f03'].name}" th:value="${inputs['f03']}" class="input" required> -->
+                        </label>
+                        <span class="error" th:text="${errors['f03']?.message}">Error message</span>
                     </div>
-                    <div class="complete-section__item">
-                        <span class="complete-section__field">郵便番号</span>
-                        <span class="complete-section__value" th:text="|〒${values['f010']}|">Example</span>
+                    <!--/* 支店番号(bank_branch_code) */-->
+                    <div class="input-item form-section__item">
+                        <sp:input-field name="f04"></sp:input-field>
+                        <label for="bank_branch_code" class="label label_required">
+                            <span class="label__text">支店番号</span>
+                            <input id="bank_branch_code" type="text" th:name="${fields['f04'].name}" th:value="${inputs['f04']}" class="input" required>
+                        </label>
+                        <span class="error" th:text="${errors['f04']?.message}">Error message</span>
                     </div>
-                    <div class="complete-section__item">
-                        <span class="complete-section__field">住所</span>
-                        <span class="complete-section__value" th:text="|${values['f063']?.label}${values['f012']}${values['f013']}${values['f014']}|">Example</span>
+                </section>
+                <section class="form-section">
+                    <h3 class="form-section__header">口座</h3>
+                    <!--/* 科目(bank_var) */-->
+                    <div class="input-item form-section__item">
+                        <sp:input-field name="f06"></sp:input-field>
+                        <span class="label label_required">
+                            <span class="label__text">口座種別</span>
+                        </span>
+                        <label class="label label_type_radio" th:each="option : ${fields['f06'].options}" th:for="${option.label}">
+                            <input type="radio" class="input  input_type_radio" th:id="${option.label}" th:name="${fields['f06'].name}" th:value="${option.id}" th:checked="${inputs['f06'] == #strings.toString(option.id)}">
+                            <span th:text="${option.label}">Item</span>
+                        </label>
+                        <span class="error" th:if="${errors['f06'] != null}" th:text="${errors['f06'].message}">Error message</span>
+                    </div>
+                    <!--/* 口座番号(bank_number) */-->
+                    <div class="input-item form-section__item">
+                        <sp:input-field name="f08"></sp:input-field>
+                        <label for="bank_number" class="label label_required">
+                            <span class="label__text">口座番号</span>
+                            <input id="bank_number" type="text" th:name="${fields['f08'].name}" th:value="${inputs['f08']}" class="input" required>
+                        </label>
+                        <span class="error" th:text="${errors['f08']?.message}">Error message</span>
+                    </div>
+                    <!--/* 口座名義(bank_account) */-->
+                    <div class="input-item form-section__item">
+                        <sp:input-field name="f07"></sp:input-field>
+                        <label for="bank_account" class="label label_required">
+                            <span class="label__text">口座名義</span>
+                            <input id="bank_account" type="text" th:name="${fields['f07'].name}" th:value="${inputs['f07']}" class="input" required>
+                        </label>
+                        <span class="error" th:text="${errors['f07']?.message}">Error message</span>
                     </div>
                 </section>
             </div>
-            <div class="form__footer form__footer_padding_bottom">
-                <div class="form__btn-wrapper">
-                    <button type="submit" name="action" value="next" class="button button_type_line button_width_full button_flex_1">戻る</button>
-                    <button type="submit" name="action" value="next" class="button button_width_full button_flex_1">
-                        登録して次へ進む
-                        <span class="material-symbols-outlined">arrow_forward_ios</span>
-                    </button>
-                </div>
+            <div class="form__footer form__footer_padding_bottom form__footer_padding_x">
+                <button type="submit" name="action" value="next" class="button button_width_full">確認する</button>
             </div>
         </div>
     </main>
 </body>
+
+<!-- <form id="bank_search">
+    <lavel>銀行名検索</lavel>
+    <input type="text" id="bank_search_text" placeholder="銀行名を入力して検索">
+    <button type="button" id="bank_search_button" onclick="bankSearch()">検索</button>
+</form> -->
+
+<!-- <form id="bank_branch_search">
+    <lavel>支店名検索</lavel>
+    <input type="text" id="bank_branch_search_text" placeholder="支店名を入力して検索">
+    <button type="button" id="bank_search_button" onclick="bankBranchSearch()">検索</button>
+</form> -->

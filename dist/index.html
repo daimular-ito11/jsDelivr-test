@@ -9,69 +9,34 @@
   <link rel="stylesheet" crossorigin href="/style.css">
 </head>
 
-<body class="body">
-    <header class="header header_form header_form_shadow">
-        <h1 class="header__text header__text_left">
-            本会員登録
-        </h1>
-        <div class="header__step">
-            <div class="step-circle__outer step-circle__outer_step-4">
-                <div class="step-circle__inner">
-                    <div class="step-circle__text"><span class="step-circle__text_current">4</span>/4</div>
-                </div>
+<body class="body" style="max-width: 50vw; padding: 4rem; ">
+    <form action="" class="form">
+        <label for="search" class="label label_required">
+            <span class="label__text">seach</span>
+            <div class="button-input">
+                <input type="text" name="search" id="search" class="input">
+                <button type="button" class="button button_type_line button_size_sm" disabled data-role="zip-search">search</button>
             </div>
-            <h2 class="header__step-text">承諾事項</h2>
-        </div>
-    </header>
-    <main class="main main_form main_gray">
-        <div class="form form_padding_top">
-            <div class="form__content">
-                <section class="form-section">
-                    <!--/* 個人情報保護方針(privacypolicy) */-->
-                    <div class="input-item form-section__item">
-                        <sp:input-field name="f025"></sp:input-field>
-                        <span class="label label_required">
-                            <span class="label__text">個人情報保護方針</span>
-                        </span>
-                        <label class="label_type_checkbox label_required" for="privacypolicy">
-                            <input type="checkbox" class="input input_type_checkbox" required value="1" id="privacypolicy" th:name="${fields['f025'].name}" th:checked="${inputs['f025'] == #strings.toString(1)}">
-                            <span>承諾</span>
-                        </label>
-                        <span class="error" th:if="${errors['f025'] != null}" th:text="${errors['f025']?.message}">Error message</span>
-                        <a th:href="${pages['p043993']?.path} ?: '/404'" behavior="internalRedirect" class="link link_margin_start link_reference">個人情報保護方針について</a>
-                    </div>
-                    <!--/* 反社会的勢力に該当しない(noantisocial) */-->
-                    <div class="input-item form-section__item">
-                        <sp:input-field name="f024"></sp:input-field>
-                        <span class="label label_required">
-                            <span class="label__text">反社会的勢力に該当しないことへの承諾</span>
-                        </span>
-                        <label class="label_type_checkbox label_required" for="noantisocial">
-                            <input type="checkbox" class="input input_type_checkbox" required value="1" id="noantisocial" th:name="${fields['f024'].name}" th:checked="${inputs['f024'] == #strings.toString(1)}">
-                            <span>承諾</span>
-                        </label>
-                        <span class="error" th:if="${errors['f024'] != null}" th:text="${errors['f024']?.message}">Error message</span>
-                        <a th:href="${pages['p043994']?.path} ?: '/404'" behavior="internalRedirect" class="link link_margin_start link_reference">反社会的勢力排除条項について</a>
-                    </div>
-                    <!--/* 電子交付(edelivery) */-->
-                    <div class="input-item form-section__item">
-                        <sp:input-field name="f027"></sp:input-field>
-                        <span class="label label_required">
-                            <span class="label__text">電子交付の承諾</span>
-                        </span>
-                        <label class="label_type_checkbox label_required" for="edelivery">
-                            <input type="checkbox" class="input input_type_checkbox" required value="1" id="edelivery" th:name="${fields['f027'].name}" th:checked="${inputs['f027'] == #strings.toString(1)}">
-                            <span>承諾</span>
-                        </label>
-                        <span class="error" th:if="${errors['f027'] != null}" th:text="${errors['f027']?.message}">Error message</span>
-                        <a th:href="${pages['p043995']?.path} ?: '/404'" behavior="internalRedirect" class="link link_margin_start link_reference">重要書類の電子交付に関する承諾について</a>
-                    </div>
-                </section>
-            </div>
-            <div class="form__footer form__footer_padding_bottom form__footer_padding_x">
-                <button type="submit" name="action" value="next" class="button button_width_full">確認する</button>
-            </div>
-        </div>
-        <a th:href="${pages['p043993']?.path} ?: '/404'" behavior="internalRedirect" class="link link_reference">個人情報保護方針について</a>
-    </main>
+        </label>
+        <label for="prefecture" class="label label_required">
+            <span class="label__text">prefecture</span>
+            <input name="prefecture" id="prefecture" class="input">
+        </label>
+        <label for="city" class="label label_required">
+            <span class="label__text">city</span>
+            <input name="city" id="city" class="input">
+        </label>
+
+        <label for="town" class="label label_required">
+            <span class="label__text">town</span>
+            <input name="town" id="town" class="input">
+        </label>
+
+        <label for="street" class="label label_required">
+            <span class="label__text">street</span>
+            <input name="street" id="street" class="input">
+        </label>
+
+        <div id="js-zip_error" class="error"></div>
+    </form>
 </body>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UI-demo</title>
+    <title>UI-demo</title>
   <script type="module" crossorigin src="/main.js"></script>
   <link rel="stylesheet" crossorigin href="/style.css">
 </head>
@@ -30,11 +30,14 @@
             </div>
         </div>
         <div class="sub-header">
-            <button class="sub-header__back"></button>
-            <h1 class="sub-header__text">Top Page</h1>
-            <button class="sub-header__toggler toggler_show" data-role="drawer" data-target="#js-header-drawer"></button>
+            <!-- <button class="sub-header__back"></button> -->
+            <!-- <h1 class="sub-header__text">Top Page</h1> -->
+            <a href="http://localhost:5173/" class="drawer__brand">
+                <img src="images/logo.png" alt="logo" class="drawer__logo">
+            </a>
+            <button class="sub-header__toggler" data-role="drawer" data-target="#js-header-drawer"></button>
 
-            <div class="sub-header__drawer drawer drawer_show" id="js-header-drawer">
+            <div class="sub-header__drawer drawer" id="js-header-drawer" data-role="drawer" data-target="#js-header-drawer">
                 <div class="drawer__dialog drawer__dialog_header">
                     <div class="drawer__header">
                         <a href="http://localhost:5173/" class="drawer__brand">
@@ -43,13 +46,23 @@
                     </div>
                     <div class="drawer__content">
                         <ul class="sub-header__btn-list">
-                            <li class="drop-down drop-down_open">
+                            <li class="drop-down" id="js-sub_head_1">
                                 <button type="button" class="drop-down__btn" data-role="drop-down" data-target="#js-sub_head_1">
                                     ファンド一覧
                                 </button>
                                 <div class="drop-down__content">
                                     <ul class="drop-down__list">
                                         <li class="drop-down__list-item"><a href="">ファンド</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="drop-down" id="js-sub_head_2">
+                                <button type="button" class="drop-down__btn" data-role="drop-down" data-target="#js-sub_head_2">
+                                    お知らせ
+                                </button>
+                                <div class="drop-down__content">
+                                    <ul class="drop-down__list">
+                                        <li class="drop-down__list-item"><a href="">お知らせ</a></li>
                                     </ul>
                                 </div>
                             </li>

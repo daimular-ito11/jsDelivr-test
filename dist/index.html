@@ -10,53 +10,124 @@
   <link rel="stylesheet" crossorigin href="/style.css">
 </head>
 
-<body class="body" style="min-height: 200vh;">
-    <!-- <header class="header header_form header_form_shadow">
-        <a href="http://localhost:5173/" class="header__text_left">
-            <img src="images/logo.png" alt="logo" class="main-header__logo">
-        </a>
-        <div class="header__step">
-            <div class="step-circle__outer step-circle__outer_step-1">
-                <div class="step-circle__inner">
-                    <div class="step-circle__text"><span class="step-circle__text_current">1</span>/4</div>
+<body class="body">
+    <main class="admin" data-role="modal-open" data-target="#UI-form-modal" data-errors="{}">
+        <div class="admin__header">
+            <h1 class="admin-members">メンバー一覧</h1>
+            <button class="button" type="button" data-role="modal" data-target="#UI-form-modal">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+                メンバー追加
+            </button>
+        </div>
+        <!-- /*メンバー追加モーダル*/ -->
+        <div class="modal" id="UI-form-modal">
+            <div class="modal__dialog">
+                <!-- <button type="button" class="modal__close-button" data-role="modal" data-target="#UI-form-modal"></button> -->
+                <div class="modal__content">
+                    <form class="modal-form" th:inline="none">
+                        <div class="modal-form__content">
+                            <h3 class="modal-form__header">メンバー追加</h3>
+                            <!--/* 担当者名(name_admin) */-->
+                            <label for="name" class="label label_required">
+                                <sp:input-field name="f02"></sp:input-field>
+                                <span class="label__text">名前</span>
+                                <input type="text" id="name" th:name="${fields['f02'].name}" th:value="${inputs['f02']}" th:if="${fields['f02'].control == 'text'}" class="input" placeholder="例：大村 太郎" autocomplete="off">
+                            </label>
+                            <!--/* メールアドレス(mail_admin) */-->
+                            <label for="email" class="label label_required">
+                                <sp:input-field name="f01"></sp:input-field>
+                                <span class="label__text">メールアドレス</span>
+                                <input type="email" id="email" th:name="${fields['f01'].name}" th:value="${inputs['f01']}" class="input" placeholder="例：exmaple@email.com" autocomplete="off">
+                            </label>
+                            <span class="error" th:if="${errors['f01'] != null}" th:text="${errors['f01'].message}">Error message</span>
+
+                            <!--/* パスワード(password_admin) */-->
+                            <label for="password" class="label label_required label_type_password">
+                                <sp:input-field name="f03"></sp:input-field>
+                                <span class="label__text">パスワード</span>
+                                <input type="password" id="password" th:name="${fields['f03:reenter'].name}" th:value="${inputs['f03:reenter']}" id="js-password" class="input password-input" placeholder="例：大村 太郎" autocomplete="off">
+                                <span class="password__toggler" data-target="#js-password"></span>
+                            </label>
+                            <span class="error" th:if="${errors['f03'] != null}" th:text="${errors['f03'].message}">Error message</span>
+                        </div>
+                        <div class="modal-form__footer">
+                            <button class="button button_width_full" type="submit" name="action" value="next">
+                                <span class="material-symbols-outlined">add</span>
+                                新しいメンバーを追加する
+                            </button>
+                            <button class="button button_width_full button_type_no-line" type="button" data-role="modal" data-target="#UI-form-modal">
+                                キャンセル
+                            </button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
-            <h2 class="header__step-text">基本情報の登録</h2>
         </div>
-    </header> -->
+        <!-- /*メンバー一覧*/ -->
+        <table class="admin__talble table">
+            <thead class="thead">
+                <tr class="tr">
+                    <th class="th">ID</th>
+                    <th class="th">名前</th>
+                    <th class="th">メールアドレス</th>
+                    <th class="th">ログイン許可</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr class="tr">
+                    <td class="td">01</td>
+                    <td class="td">田中 太郎</td>
+                    <td class="td">example@examle.com</td>
+                    <td class="td">許可する</td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">02</td>
+                    <td class="td">田中 太郎</td>
+                    <td class="td">example@examle.com</td>
+                    <td class="td">許可しない</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 
-    <!-- <header class="header header_form header_form_shadow">
-        <div class="main-header main-header_conetnt_center">
-            <a href="http://localhost:5173/" class="main-header__brand">
-                <img src="images/logo.png" alt="logo" class="main-header__logo">
-            </a>
+    <footer>
+        <div class="main-footer"></div>
+        <div class="sub-footer">
+            <ul class="nav__list">
+                <li class="nav__list-item">
+                    <a href="" class="nav__list-link nav__list-link_active">
+                        <span class="material-symbols-outlined nav__list-icon">home</span>
+                        <span class="nav__list-text">ホーム</span>
+                    </a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="" class="nav__list-link">
+                        <span class="material-symbols-outlined nav__list-icon">apartment</span>
+                        <span class="nav__list-text">ファンド</span>
+                    </a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="" class="nav__list-link">
+                        <span class="material-symbols-outlined nav__list-icon">pending_actions</span>
+                        <span class="nav__list-text">出資履歴</span>
+                    </a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="" class="nav__list-link">
+                        <span class="material-symbols-outlined nav__list-icon">payments</span>
+                        <span class="nav__list-text">配当履歴</span>
+                    </a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="" class="nav__list-link">
+                        <span class="material-symbols-outlined nav__list-icon">menu</span>
+                        <span class="nav__list-text">メニュー</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="sub-header">
-            <a href="http://localhost:5173/" class="drawer__brand">
-                <img src="images/logo.png" alt="logo" class="main-header__logo">
-            </a>
-        </div>
-    </header> -->
-    <div class="sub-header">
-        <a href="http://localhost:5173/" class="drawer__brand">
-            <img src="images/logo.png" alt="logo" class="main-header__logo">
-        </a>
-    </div>
-
-    <header class="header header_form header_form_shadow">
-        <h1 class="header__text header__text_left header__text_phone_show">
-            本会員登録
-        </h1>
-        <div class="header__step">
-            <div class="step-circle__outer step-circle__outer_step-1">
-                <div class="step-circle__inner">
-                    <div class="step-circle__text"><span class="step-circle__text_current">1</span>/4</div>
-                </div>
-            </div>
-            <h2 class="header__step-text">基本情報の登録</h2>
-        </div>
-        <a href="http://localhost:5173/" class="header__text_left header__text_phone_hidden">
-            <img src="images/logo.png" alt="logo" class="main-header__logo">
-        </a>
-    </header>
+    </footer>
 </body>
